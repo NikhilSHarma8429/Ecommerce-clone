@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-mongoose.connect('mongodb://localhost:27017/ecommerce-clone').then(() =>[
+let username = process.env.DB_USERNAME;
+let password = process.env.DB_PASSWORD;
+
+mongoose.connect(`mongodb+srv://${username}:${password}@ecommerce-clone.xv9ngwh.mongodb.net/?retryWrites=true&w=majority&appName=Ecommerce-clone`).then(() =>[
     console.log('DataBase Connected')
 ]).catch((err) => {
     console.log(err)
